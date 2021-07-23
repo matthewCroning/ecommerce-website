@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="row">
+        <div class="col-8">
+            <div class="row margin-top-10" *ngFor="let item of productsHashMap | keyvalue">
+                <div class="col-2">
+                    {{ item.value.product.name }}
+                </div>
+                <div class="col-10">
+                    <button class="btn btn-light" (click)="ShoppingCartService.reduceProduct(item.value.product.name)">-</button>
+                    {{ item.value.amount }}
+                    <button class="btn btn-light"  (click)="ShoppingCartService.increaseProduct(item.value.product.name)">+</button>
+                    <button class="btn btn-light btn-close" (click)="ShoppingCartService.removeProduct(item.value.product.name)"></button>
+                    {{ item.value.product.price * item.value.amount  | currency }}
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <h1>
+                Total Price: {{ ShoppingCartService.getPrice() | currency }}
+            </h1>
+    </div>
+
+    <div class="row">
+        <div class="col-6">
+            <button class="btn btn-light" routerLink="/">Back to Shopping</button>
+        </div>
+        <div class="col-6">
+            <button class="btn btn-light" routerLink="/checkout">Proceed To Checkout</button>
+        </div>
+    </div>
+</div>
+
+

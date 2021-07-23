@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="row">
+        <div class="col-4">
+           <h1> {{ product.name }} </h1>
+        </div>
+        <div class="col-4">
+            <h1> {{ product.price | currency }} </h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            {{ product.description }}
+            <button class="btn btn-light" (click)="ShoppingCartService.addProduct(produce.name)">add to cart</button>
+        </div>
+    </div>
+</div>
