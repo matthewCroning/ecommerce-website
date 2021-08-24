@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { Product } from '../models/product.model';
-
+import { AlertService } from './alert.service';
 @Injectable({
   providedIn: 'root'
 })
@@ -13,7 +13,7 @@ export class ShoppingCartService {
   id = 0;
   totalPrice = 0;
   
-  constructor() {
+  constructor(private AlertService: AlertService) {
     this.getSessionDataMap();
    }
 
@@ -27,6 +27,7 @@ export class ShoppingCartService {
     }
     this.productsSubject.next(this.productsHashMap);
     this.setSessionDataMap();
+    this.AlertService.sendAlert("added Product");
   }
 
   reduceProduct(productName){

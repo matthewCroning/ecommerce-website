@@ -1,12 +1,13 @@
 <div class="container">
     <div class="row">
         <div class="col-md-4 col-sm-6 col-12 margin-top-10" *ngFor="let product of products">
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="..." alt="Card image cap">
+            <div class="card h-100" style="width: 18rem;">
+                <img class="card-img-top" src={{product.images[0]}} alt="Card image cap">
                 <div class="card-body">
-                <h5 routerLink="/product/{{product.name}}" class="card-title">{{product.name}}</h5>
+                    <h5 routerLink="/product/{{product.product_id}}/{{product.product_variant_id}}" class="card-title">{{product.brand | uppercase}} product id : {{product.product_id}} </h5>
+                <h5 routerLink="/product/{{product.product_id}}" class="card-title">{{product.name}}</h5>
                 <p class="card-text"> {{product.price | currency }} </p>
-                <button class="btn btn-light" (click)="addProduct(product)">+</button>
+                {{product | json}}
                 </div>
             </div>
         </div>

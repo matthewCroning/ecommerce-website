@@ -1,0 +1,17 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<input class="form-control-file"
+    type="file" 
+/>
+<input [(ngModel)]="product.name" class="form-control" type="text" placeholder="name">
+<input [(ngModel)]="product.price" class="form-control" type="number" placeholder="price">
+<input [(ngModel)]="product.brand" type="text" placeholder="brand">
+<input [(ngModel)]="product.imageURL" type="text" placeholder="imageURL">
+<textarea [(ngModel)]="product.description" class="form-control" placeholder="description" id="exampleFormControlTextarea1" rows="3"></textarea>
+<button (click)="createProduct()">create</button>
+
+{{ product }}

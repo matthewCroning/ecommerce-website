@@ -12,7 +12,12 @@ export class ProductListComponent implements OnInit {
 
   products: Product[];
   constructor(private ProductService: ProductService, private ShoppingCartService: ShoppingCartService) { 
-    this.products = ProductService.getProducts();
+    
+    this.ProductService. getProductVariantsDistinct().subscribe((result: any[]) => {
+      this.products = result;
+      console.log(this.products);
+      });
+
   }
 
   addProduct(product){

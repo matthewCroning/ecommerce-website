@@ -1,0 +1,42 @@
+
+<div class="container">
+    <div class="row">
+        <div class="input-group">
+            <div class="form-outline">
+                <input [(ngModel)]="searchText" class="form-control" type="text" placeholder="name">
+            </div>
+            <button type="button" class="btn btn-primary" (click)="search(searchText)">
+              search
+            </button>
+          </div>
+          <ng-container *ngFor="let key of  product | keyvalue"> 
+            <div class="form-check form-check-inline">
+                <input (change)="checkCheckBoxvalue($event)" class="form-check-input" type="checkbox" value="" id= {{key.key}}>
+                <label class="form-check-label" for="flexCheckIndeterminate">
+                    {{key.key}}
+                </label>
+            </div>
+        </ng-container>
+    </div>
+    <div class="row">
+                
+  
+    </div>
+    <div class="row">
+        <ng-container *ngFor="let product of products">
+            <input [(ngModel)]="product.name" class="form-control" type="text" placeholder="name">
+            <input [(ngModel)]="product.price" class="form-control" type="number" placeholder="price">
+            <input [(ngModel)]="product.brand" type="text" placeholder="brand">
+            <input [(ngModel)]="product.imageURL" type="text" placeholder="imageURL">
+            <textarea [(ngModel)]="product.description" class="form-control" placeholder="description" id="exampleFormControlTextarea1" rows="3"></textarea>
+            <button (click)="updateProduct(product)">update</button>
+            <button (click)="deleteProduct(product.id)">delete</button>
+            <input [(ngModel)]="product.imageURL" type="text" placeholder="category">
+            <button (click)="deleteProduct(product.id)">add category</button>
+            
+            
+        </ng-container>
+
+        
+    </div>
+</div>
