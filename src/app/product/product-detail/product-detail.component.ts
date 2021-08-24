@@ -1,3 +1,4 @@
+import { AlertService } from './../../shared/services/alert.service';
 import { ShoppingCartService } from './../../shared/services/shopping-cart.service';
 import { Product } from './../../shared/models/product.model';
 import { ProductService } from './../../shared/services/product.service';
@@ -12,11 +13,18 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class ProductDetailComponent implements OnInit {
 
   product: Product;
-  
+  productVariantId;
   constructor(public route: ActivatedRoute, private ProductService: ProductService, private ShoppingCartService: ShoppingCartService) {
     
     this.route.params.subscribe(params => {
-      this.product = this.ProductService.getProduct(params['id']);
+      this.productVariantId = params['product_variant_id'];
+      console.log(this.productVariantId);
+      this.ProductService.getProduct(params['product_id']).subscribe((result: Product) =>{
+        console.log(result);
+        
+        this.product = result[0];
+        console.log(this.product[0].name);
+      })
       console.log(this.product);
     });
   }

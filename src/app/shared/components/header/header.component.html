@@ -1,10 +1,12 @@
-<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+<nav class="navbar fixed-top navbar-expand-lg navbar">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
       <a class="navbar-brand" href="#">Hidden brand</a>
       <a class="nav-link" routerLink="/">products</a>
-      <a class="nav-link" routerLink="/cart">shopping cart {{ShoppingCartService.getCountOfCart()}}</a>
+      <a routerLink="/cart">shopping cart <span class="badge badge-pill badge-primary"> <ng-container *ngIf="ShoppingCartService.getCountOfCart() != 0">{{ShoppingCartService.getCountOfCart()}}</ng-container> </span></a>
+
     </div>
-  </nav>
+</nav>
+

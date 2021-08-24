@@ -4,6 +4,9 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ProductDetailComponent } from './product/product-detail/product-detail.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { AdminComponent } from './admin/admin.component';
+import { UpdateProductsComponent } from './admin/update-products/update-products.component';
+import { CreateProductComponent } from './admin/create-product/create-product.component';
 
 
 const routes: Routes = [
@@ -12,7 +15,7 @@ const routes: Routes = [
     component: ProductComponent
   },
   {
-    path: 'product/:id',
+    path: 'product/:product_id/:product_variant_id',
     component: ProductDetailComponent
   },
   {
@@ -22,6 +25,15 @@ const routes: Routes = [
   {
     path: 'checkout',
     component: CheckoutComponent
+  }
+  ,
+  {
+    path: 'admin/create',
+    component: CreateProductComponent
+  },
+  {
+    path: 'admin/update',
+    component: UpdateProductsComponent
   }
 
 ];

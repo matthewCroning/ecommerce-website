@@ -9,6 +9,14 @@ import { ProductComponent } from './product/product.component';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { AdminComponent } from './admin/admin.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UpdateProductsComponent } from './admin/update-products/update-products.component';
+import { CreateProductComponent } from './admin/create-product/create-product.component';
+import { AlertComponent } from './shared/components/alert/alert.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ProductVariantDetailComponent } from './product/product-variant-detail/product-variant-detail.component';
 
 @NgModule({
   declarations: [
@@ -18,11 +26,20 @@ import { CheckoutComponent } from './checkout/checkout.component';
     ProductComponent,
     HeaderComponent,
     ShoppingCartComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    AdminComponent,
+    UpdateProductsComponent,
+    CreateProductComponent,
+    AlertComponent,
+    ProductVariantDetailComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    BrowserAnimationsModule,
+    HttpClientModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
